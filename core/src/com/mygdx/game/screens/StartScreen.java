@@ -59,6 +59,7 @@ public class StartScreen implements Screen {
 		start.addAction(alpha(0));
 		start.addAction(fadeIn(5f));
 		
+		//When clicked go to main game screen
 		start.addListener(new ClickListener() {
 			public void clicked(InputEvent e, float x, float y) {
 				game.setScreen(new MainGameScreen(game));
