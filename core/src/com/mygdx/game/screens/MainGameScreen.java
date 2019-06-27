@@ -26,14 +26,10 @@ public class MainGameScreen implements Screen {
 	private ShapeRenderer shape;
 	private SpriteBatch batch;
 	private Timer time;
-	private BGMusic sound = new BGMusic();
 	private Controller control = new Controller();
 	private BallsColliding collideSound = new BallsColliding();
 	private Alert alert = new Alert();
 	private Healthbar healthbar = new Healthbar();
-	
-	
-	
 	
 	Random gen = new Random();
 	DecimalFormat df = new DecimalFormat("#.00");
@@ -52,7 +48,6 @@ public class MainGameScreen implements Screen {
 	public MainGameScreen(MyGame game) {
 
 		this.game = game;
-
 	}
 
 
@@ -65,7 +60,6 @@ public class MainGameScreen implements Screen {
 		time = new Timer();
 		//alert = new Alert();
 		balls.add(new Ball(ball_x, ball_y, size, speed_x, speed_y));
-		sound.create();
 		collideSound.create();
 		healthbar.addTextures();
 	
@@ -181,6 +175,7 @@ public class MainGameScreen implements Screen {
 	public void goToEndScreen() {
 		
 		game.setScreen(new EndGameScreen(game, actualScore));
+		StartScreen.backgroundMusic.dispose();
 		
 	}
 
@@ -210,7 +205,6 @@ public class MainGameScreen implements Screen {
 	@Override
 	public void dispose() {
 		
-		sound.dispose();
 		//collideSound.dispose();
 		//time.dispose();
 		healthbar.dispose();
