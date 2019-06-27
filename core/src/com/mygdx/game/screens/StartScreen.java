@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.MyGame;
+import com.mygdx.game.sounds.BGMusic;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 
@@ -22,7 +23,6 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 public class StartScreen implements Screen {
 	
 	private Texture startImage = new Texture(Gdx.files.internal("Title2.png"));
-	
 	private SpriteBatch batch;
 	private Sprite titlePic;
 	private Image titleImage;
@@ -30,6 +30,8 @@ public class StartScreen implements Screen {
 	private Skin skin;
 	private TextureAtlas atlas;
 	private MyGame game;
+	
+	public static BGMusic backgroundMusic;
 	
 	public StartScreen(MyGame game) {
 		
@@ -59,6 +61,7 @@ public class StartScreen implements Screen {
 		start.addAction(alpha(0));
 		start.addAction(fadeIn(5f));
 		
+		//When clicked go to main game screen
 		start.addListener(new ClickListener() {
 			public void clicked(InputEvent e, float x, float y) {
 				game.setScreen(new MainGameScreen(game));
@@ -93,6 +96,7 @@ public class StartScreen implements Screen {
 		batch = new SpriteBatch();
 		
 		initButtons();
+		startMusic();
 	}
 
 	@Override
@@ -108,6 +112,11 @@ public class StartScreen implements Screen {
 		stage.draw();
 		
 		
+	}
+	
+	private void startMusic() {
+		backgroundMusic = new BGMusic();
+		backgroundMusic.create();
 	}
 	
 	public void stageUpdate (float delta) {
@@ -143,7 +152,6 @@ public class StartScreen implements Screen {
 		// TODO Auto-generated method stub
 		stage.dispose();
 		skin.dispose();
-		this.dispose();
 	}
 
 }
