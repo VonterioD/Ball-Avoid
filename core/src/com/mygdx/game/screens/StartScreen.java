@@ -31,7 +31,7 @@ public class StartScreen implements Screen {
 	private TextureAtlas atlas;
 	private MyGame game;
 	
-	public BGMusic backgroundMusic;
+	public static BGMusic backgroundMusic;
 	
 	public StartScreen(MyGame game) {
 		
@@ -152,7 +152,6 @@ public class StartScreen implements Screen {
 		// TODO Auto-generated method stub
 		stage.dispose();
 		skin.dispose();
-		backgroundMusic.dispose();
 	}
 
 }
