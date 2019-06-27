@@ -152,7 +152,7 @@ public class StartScreen implements Screen {
 		// TODO Auto-generated method stub
 		stage.dispose();
 		skin.dispose();
-		this.dispose();
+		backgroundMusic.dispose();
 	}
 
 }
