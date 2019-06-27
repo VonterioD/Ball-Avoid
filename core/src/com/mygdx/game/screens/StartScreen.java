@@ -15,16 +15,25 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.MyGame;
+<<<<<<< Updated upstream
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+=======
+import com.mygdx.game.sounds.BGMusic;
+>>>>>>> Stashed changes
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 
 
 public class StartScreen implements Screen {
 	
 	private Texture startImage = new Texture(Gdx.files.internal("Title2.png"));
+<<<<<<< Updated upstream
 	
 	private SpriteBatch batch;
 	private Sprite titlePic;
+=======
+	//private SpriteBatch batch;
+	//private Sprite titlePic;
+>>>>>>> Stashed changes
 	private Image titleImage;
 	private Stage stage;
 	private Skin skin;
@@ -72,6 +81,12 @@ public class StartScreen implements Screen {
 		howTo.setPosition(250, 150);
 		howTo.addAction(alpha(0));
 		howTo.addAction(fadeIn(5f));
+		
+		howTo.addListener(new ClickListener() {
+			public void clicked(InputEvent e, float x, float y) {
+				game.setScreen(new Rules(game));
+			}
+		});
 			
 		//Options Button
 		TextButton options = new TextButton("Options", skin, "default");
@@ -91,7 +106,7 @@ public class StartScreen implements Screen {
 		titleImage.setBounds(125, 315, 400, 150);
 		titleImage.addAction(alpha(0));
 		titleImage.addAction(fadeIn(5f));
-		batch = new SpriteBatch();
+		//batch = new SpriteBatch();
 		
 		initButtons();
 	}
