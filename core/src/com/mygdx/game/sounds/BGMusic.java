@@ -51,7 +51,6 @@ public class BGMusic implements ApplicationListener {
 	public void dispose() {
 	
 		music.dispose();
-		
 	}
 
 }
