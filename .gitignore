@@ -123,3 +123,10 @@ Thumbs.db
 !/ios-moe/xcode/*.xcodeproj/xcshareddata
 !/ios-moe/xcode/*.xcodeproj/project.pbxproj
 /ios-moe/xcode/native/
+
+
+.GL20
+.emagtScreen(new MainGameScreen(game));
+.emagtScreen(new Rules(game));
+creens
+tageUpdate(delta);
