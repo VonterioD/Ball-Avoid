@@ -15,30 +15,22 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.MyGame;
-<<<<<<< Updated upstream
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
-=======
 import com.mygdx.game.sounds.BGMusic;
->>>>>>> Stashed changes
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 
 
 public class StartScreen implements Screen {
 	
 	private Texture startImage = new Texture(Gdx.files.internal("Title2.png"));
-<<<<<<< Updated upstream
-	
-	private SpriteBatch batch;
-	private Sprite titlePic;
-=======
 	//private SpriteBatch batch;
 	//private Sprite titlePic;
->>>>>>> Stashed changes
 	private Image titleImage;
 	private Stage stage;
 	private Skin skin;
 	private TextureAtlas atlas;
 	private MyGame game;
+	
+	public static BGMusic backgroundMusic;
 	
 	public StartScreen(MyGame game) {
 		
@@ -109,6 +101,7 @@ public class StartScreen implements Screen {
 		//batch = new SpriteBatch();
 		
 		initButtons();
+		startMusic();
 	}
 
 	@Override
@@ -124,6 +117,11 @@ public class StartScreen implements Screen {
 		stage.draw();
 		
 		
+	}
+	
+	private void startMusic() {
+		backgroundMusic = new BGMusic();
+		backgroundMusic.create();
 	}
 	
 	public void stageUpdate (float delta) {
@@ -159,7 +157,6 @@ public class StartScreen implements Screen {
 		// TODO Auto-generated method stub
 		stage.dispose();
 		skin.dispose();
-		this.dispose();
 	}
 
 }
