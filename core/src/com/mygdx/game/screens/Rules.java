@@ -52,7 +52,7 @@ public class Rules implements Screen {
 	}
 	
 	public void createImages() {
-		
+		System.out.println("blah");
 	}
 
 	@Override

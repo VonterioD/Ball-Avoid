@@ -87,6 +87,12 @@ public class StartScreen implements Screen {
 		options.addAction(alpha(0));
 		options.addAction(fadeIn(5f));
 		
+		options.addListener(new ClickListener() {
+			public void clicked(InputEvent e, float x, float y) {
+				game.setScreen(new Options(game));
+			}
+		});
+		
 		//Add all buttons to stage
 		stage.addActor(start);
 		stage.addActor(howTo);
