@@ -4,9 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -56,7 +53,7 @@ public class StartScreen implements Screen {
 		//Start Button
 		TextButton start = new TextButton("Start", skin, "default");
 		start.setSize(150, 50);
-		start.setPosition(250, 200); //height divided by 2 = 240 height = 480
+		start.setPosition(250, 200); //height divided by 2 = 240 height = 480 width = 640
 		start.addAction(alpha(0));
 		start.addAction(fadeIn(5f));
 		
@@ -67,7 +64,7 @@ public class StartScreen implements Screen {
 			}
 		});
 		
-		//How to play button
+		//How to play button, when clicked goes to how to play screen
 		TextButton howTo = new TextButton("How To Play", skin, "default");
 		howTo.setSize(150, 50);
 		howTo.setPosition(250, 150);
@@ -80,7 +77,7 @@ public class StartScreen implements Screen {
 			}
 		});
 			
-		//Options Button
+		//Options Button, when clicked goes to options screen
 		TextButton options = new TextButton("Options", skin, "default");
 		options.setSize(150, 50);
 		options.setPosition(250, 100);

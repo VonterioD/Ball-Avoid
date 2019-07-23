@@ -4,9 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.MyGame;
 
 public class Options implements Screen {
@@ -19,26 +21,35 @@ public class Options implements Screen {
 	public Options(MyGame game){
 		this.game = game;
 		
+		//Setting stage
 		optionsStage = new Stage();
 		Gdx.input.setInputProcessor(optionsStage);
 		
+		//Creating the skin
 		optionsSkin = new Skin(Gdx.files.internal("ui/uiskin2.json"), optionsAtlas);
 	}
 	
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
+		//Create buttons
 		initButtons();
 
 	}
 	
 	public void initButtons() {
-		System.out.println("yah");
 		
+		//Start button
 		TextButton start = new TextButton("Start", optionsSkin, "default");
 		start.setSize(150, 50);
 		start.setPosition(0, 0);
 		
+		start.addListener(new ClickListener(){
+			public void clicked(InputEvent e, float x, float y) {
+				game.setScreen(new StartScreen(game));
+			}		
+		});
+		
+		//Add buttons to stage
 		optionsStage.addActor(start);
 	}
 	
