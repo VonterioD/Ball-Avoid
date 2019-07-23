@@ -1,6 +1,7 @@
 package com.mygdx.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -8,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.MyGame;
 import com.mygdx.game.objects.*;
-import com.mygdx.game.sounds.BGMusic;
 import com.mygdx.game.sounds.BallsColliding;
 import com.mygdx.game.actions.Alert;
 
@@ -42,6 +42,7 @@ public class MainGameScreen implements Screen {
 	private int hasThirty = 0, hasCollided = 0, tenPrior = 0, fivePrior = 0, healthcounter = 0;
 	double score;
 	public String actualScore; 
+	public static boolean paused = false;
 	
 	
 	
@@ -68,9 +69,23 @@ public class MainGameScreen implements Screen {
 	@Override
 	public void render(float delta) {
 		
+		//If paused don't update anything, else continue rendering
+		if(paused) {
+			if (Gdx.input.isKeyPressed(Keys.P)) {
+				paused = false;
+				
+				try {
+					Thread.sleep(150);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		else {
 		
 		//Clear the screen
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
 
 		//Controlled ball
 		control.color = Color.CYAN;
@@ -78,6 +93,8 @@ public class MainGameScreen implements Screen {
 		shape.begin(ShapeRenderer.ShapeType.Filled);
 		control.draw(shape);
 		shape.end(); 		
+		
+		
 		
 		//Create bouncing balls
 		for (Ball ball : balls) {
@@ -89,8 +106,8 @@ public class MainGameScreen implements Screen {
 			
 			//When ball and controller collide make collision sound effect and flash to Red
 			if (control.overlaps(ball) == true) {
-				
-				collideSound.render();
+				if (Options.isFxOn == true)
+					collideSound.render();
 				control.color = Color.RED;
 				shape.begin(ShapeRenderer.ShapeType.Filled);
 				control.draw(shape);
@@ -168,7 +185,7 @@ public class MainGameScreen implements Screen {
 			goToEndScreen();			
 		}
 
-		
+		}
 		
 	}
 	
@@ -186,7 +203,7 @@ public class MainGameScreen implements Screen {
 
 	@Override
 	public void pause() {
-
+		
 		
 	}
 

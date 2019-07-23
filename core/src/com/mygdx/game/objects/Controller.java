@@ -6,6 +6,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.objects.Ball;
+import com.mygdx.game.screens.MainGameScreen;
 
 
 
@@ -30,6 +31,19 @@ public class Controller extends Game {
 	}
 	
 	public void update () {
+		
+		//Pausing the game
+		if (Gdx.input.isKeyPressed(Keys.P)) {
+			MainGameScreen.paused = true;
+			
+			try {
+				Thread.sleep(150);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			System.out.println("should be paused");
+		}
 		
 		//Left and Right Movement
 		if (Gdx.input.isKeyPressed(Keys.LEFT))

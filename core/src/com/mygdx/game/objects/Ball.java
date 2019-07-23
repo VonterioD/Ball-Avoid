@@ -3,6 +3,7 @@ package com.mygdx.game.objects;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.mygdx.game.screens.Options;
 //import com.mygdx.game.screens.MainGameScreen;
 import com.mygdx.game.sounds.WallCollide;
 import java.util.Random;
@@ -36,14 +37,15 @@ public class Ball {
 		if (x < size || x > Gdx.graphics.getWidth() - size) {
 		
 			xSpeed = -xSpeed;
-			collide.create();
+			if(Options.isFxOn == true)
+				collide.create();
 		}
 			
 		if (y < size || y > Gdx.graphics.getHeight() - size) {
 			
 			ySpeed = -ySpeed;
-			collide.create();	
-
+			if(Options.isFxOn == true)
+				collide.create();	
 		}
 		
 		//Incrementing time variable (game clock)

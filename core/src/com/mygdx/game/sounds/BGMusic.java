@@ -23,6 +23,14 @@ public class BGMusic implements ApplicationListener {
 		music2.setLooping(id, true); */
 	
 	}
+	
+	public void setVolume() {
+		music.setVolume(1.0f);
+	}
+	
+	public void mute() {
+		music.setVolume(0);
+	}
 
 	@Override
 	public void resize(int width, int height) {
