@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.MyGame;
-import com.mygdx.game.sounds.BGMusic;
+//import com.mygdx.game.sounds.BGMusic;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 
 
@@ -27,7 +27,7 @@ public class StartScreen implements Screen {
 	private TextureAtlas atlas;
 	private MyGame game;
 	
-	public static BGMusic backgroundMusic;
+	//public static BGMusic backgroundMusic;
 	
 	public StartScreen(MyGame game) {
 		
@@ -104,7 +104,6 @@ public class StartScreen implements Screen {
 		//batch = new SpriteBatch();
 		
 		initButtons();
-		startMusic();
 	}
 
 	@Override
@@ -122,10 +121,10 @@ public class StartScreen implements Screen {
 		
 	}
 	
-	private void startMusic() {
+	/*private void startMusic() {
 		backgroundMusic = new BGMusic();
 		backgroundMusic.create();
-	}
+	}*/
 	
 	public void stageUpdate (float delta) {
 		stage.act(delta);

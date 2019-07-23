@@ -175,7 +175,7 @@ public class MainGameScreen implements Screen {
 	public void goToEndScreen() {
 		
 		game.setScreen(new EndGameScreen(game, actualScore));
-		StartScreen.backgroundMusic.dispose();
+		MyGame.backgroundMusic.dispose();
 		
 	}
 

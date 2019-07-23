@@ -45,7 +45,7 @@ public class Options implements Screen {
 		
 		start.addListener(new ClickListener(){
 			public void clicked(InputEvent e, float x, float y) {
-				game.setScreen(new StartScreen(game));
+				game.setScreen(new MainGameScreen(game));
 			}		
 		});
 		
